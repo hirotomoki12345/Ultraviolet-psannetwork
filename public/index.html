@@ -69,6 +69,135 @@
   height: 100%;
   border: none;
 }
+
+body {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f0f0f0;
+}
+
+h1 {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.desc {
+  text-align: center;
+}
+
+.left-margin {
+  margin-left: 20px;
+}
+
+#uv-form {
+  margin-top: 20px;
+  text-align: center;
+}
+
+#uv-address {
+  width: 300px;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: #434c5e;
+  color: #fff;
+  text-align: center;
+  padding: 10px 0;
+}
+
+iframe {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: none;
+}
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 20px;
+    background-color: #000;
+    color: #fff;
+}
+
+h1 {
+    color: #007bff;
+    font-size: 50px;
+    margin-bottom: 30px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+h2 {
+    color: red;
+    margin-top: 45px;
+    font-size: 3em;
+}
+
+p {
+    font-size: 18px;
+    margin-bottom: 10px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
+}
+
+a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    font-size: 20px;
+    color: white;
+}
+
+li {
+    margin-bottom: 10px;
+    border-bottom: 1px solid #555;
+    padding-bottom: 5px;
+}
+
+li:last-child {
+    border-bottom: none;
+}
+
+li a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+li a:hover {
+    text-decoration: underline;
+}
+
+.titles {
+    color: red;
+    font-family: sans-serif;
+    font-size: 5em;
+    font-weight: bold;
+}
   </style>
   </head>
 
@@ -99,37 +228,64 @@ Ultraviolet はインターネットを回避するために使用される高�
       </div>
     </footer>
     <iframe style="display: none;" id="uv-frame" lang="jp"></iframe>
-    <script>
-// ウェブサイト全体を翻訳するスクリプト
+    <canvas id="canvas"></canvas>
 
-(function() {
-  var webAppUrl = 'https://script.google.com/macros/s/AKfycbxjMc7MapfqNjQIBcr0AvIRhBfdrQMuLCB1sOPK3LXJRtYCOmVgqw5cAqudhWVwB-9g/exec';
-  var sourceLanguage = 'zh';
-  var targetLanguage = 'ja';
+<script>
+const canvas = document.getElementById("canvas");
+const ctx = canvas.getContext("2d");
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+const lines = [];
 
-  // ページ内のすべてのテキストを取得
-  var allTextNodes = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null, false);
-  var textNodes = [];
-  while (allTextNodes.nextNode()) {
-    textNodes.push(allTextNodes.currentNode);
-  }
-
-  // 各テキストを翻訳
-  textNodes.forEach(function(node) {
-    var originalText = node.nodeValue.trim();
-    if (originalText !== '') {
-      fetch(`${webAppUrl}?text=${originalText}&source=${sourceLanguage}&target=${targetLanguage}`)
-        .then(response => response.json())
-        .then(result => {
-          var translatedText = result.text;
-          node.nodeValue = translatedText;
-        })
-        .catch(error => {
-          console.error('翻訳エラー:', error);
-        });
+class Line {
+    constructor(x, y, color, speed) {
+        this.x = x;
+        this.y = y;
+        this.color = color;
+        this.speed = speed;
     }
-  });
-})();
-    </script>
+
+    update() {
+        this.x += this.speed;
+        if (this.x > canvas.width) {
+            this.x = 0;
+        }
+    }
+
+    draw() {
+        ctx.beginPath();
+        ctx.moveTo(this.x, this.y);
+        ctx.lineTo(this.x + 50, this.y);
+        ctx.strokeStyle = this.color;
+        ctx.lineWidth = 2;
+        ctx.stroke();
+    }
+}
+
+function createLines() {
+    for (let i = 0; i < 100; i++) {
+        const x = Math.random() * canvas.width;
+        const y = Math.random() * canvas.height;
+        const color = `rgba(${Math.random() * 255},${Math.random() * 255},${Math.random() * 255},0.8)`;
+        const speed = 1 + Math.random() * 3;
+        lines.push(new Line(x, y, color, speed));
+    }
+}
+
+function animate() {
+    requestAnimationFrame(animate);
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    for (const line of lines) {
+        line.update();
+        line.draw();
+    }
+}
+
+createLines();
+animate();
+</script>
+
+
   </body>
 </html>
