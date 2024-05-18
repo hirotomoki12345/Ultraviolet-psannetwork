@@ -59,6 +59,8 @@
       }
     </script>
   <style>
+    @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap");
+
 #uv-frame {
   position: fixed; /* 要素を固定位置に配置する */
   top: 0; /* 上端に配置 */
@@ -96,6 +98,38 @@ Ultraviolet はインターネットを回避するために使用される高�
         <span>Ultraviolet &copy; TN 2023</span>
       </div>
     </footer>
-    <iframe style="display: none;" id="uv-frame", lang="jp"></iframe>
+    <iframe style="display: none;" id="uv-frame" lang="jp"></iframe>
+    <script>
+// ウェブサイト全体を翻訳するスクリプト
+
+(function() {
+  var webAppUrl = 'https://script.google.com/macros/s/AKfycbxjMc7MapfqNjQIBcr0AvIRhBfdrQMuLCB1sOPK3LXJRtYCOmVgqw5cAqudhWVwB-9g/exec';
+  var sourceLanguage = 'zh';
+  var targetLanguage = 'ja';
+
+  // ページ内のすべてのテキストを取得
+  var allTextNodes = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null, false);
+  var textNodes = [];
+  while (allTextNodes.nextNode()) {
+    textNodes.push(allTextNodes.currentNode);
+  }
+
+  // 各テキストを翻訳
+  textNodes.forEach(function(node) {
+    var originalText = node.nodeValue.trim();
+    if (originalText !== '') {
+      fetch(`${webAppUrl}?text=${originalText}&source=${sourceLanguage}&target=${targetLanguage}`)
+        .then(response => response.json())
+        .then(result => {
+          var translatedText = result.text;
+          node.nodeValue = translatedText;
+        })
+        .catch(error => {
+          console.error('翻訳エラー:', error);
+        });
+    }
+  });
+})();
+    </script>
   </body>
 </html>
