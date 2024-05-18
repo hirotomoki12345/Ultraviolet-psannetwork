@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="jp">
   <head>
     <meta charset="utf-8" />
     <meta
@@ -59,17 +59,14 @@
       }
     </script>
   <style>
-    html, body {
-      margin: 0;
-      padding: 0;
-      height: 100%;
-      overflow: hidden;
-    }
-    #uv-frame {
-      width: 100%;
-      height: 100%;
-      border: none; /* フレームのボーダーを消す場合 */
-    }
+#uv-frame {
+  position: fixed; /* 要素を固定位置に配置する */
+  top: 0; /* 上端に配置 */
+  left: 0; /* 左端に配置 */
+  width: 100%;
+  height: 100%;
+  border: none;
+}
   </style>
   </head>
 
@@ -99,6 +96,6 @@ Ultraviolet はインターネットを回避するために使用される高�
         <span>Ultraviolet &copy; TN 2023</span>
       </div>
     </footer>
-    <iframe style="display: none;" id="uv-frame"></iframe>
+    <iframe style="display: none;" id="uv-frame", lang="jp"></iframe>
   </body>
 </html>
