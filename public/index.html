@@ -1,291 +1,89 @@
 <!DOCTYPE html>
-<html lang="jp">
-  <head>
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
-    />
-    <title>Ultraviolet Psannetwork</title>
-    <meta
-      name="keywords"
-      content="回避, Chrome, proxy, web proxy, ultraviolet, service workers, unblock websites, unblock chromebook, free web proxy, proxy list, proxy sites, un block chromebook, online proxy, proxy server, proxysite, proxy youtube, bypass securly, bypass iboss, bypass lightspeed filter, holy unblocker, chromebooks, titanium network, unblock youtube, youtube proxy, unblocked youtube, youtube unblocked"
-    />
-    <meta
-      name="theme-color"
-      media="(prefers-color-scheme: dark)"
-      content="#434c5e"
-    />
-    <meta name="googlebot" content="index, follow, snippet" />
-    <link rel="icon" type="image/jpeg" href="https://raw.githubusercontent.com/hirotomoki12345/psannetwork.com/main/_6e6ccb16-2e38-4160-9507-a286d8e55b29.jpeg">
-  <!-- <link rel="stylesheet" href="index.css" /> -->
-    <script src="baremux/bare.cjs" defer></script>
-    <script src="epoxy/index.js" defer></script>
-    <script src="uv/uv.bundle.js" defer></script>
-    <script src="uv/uv.config.js" defer></script>
-    <script src="register-sw.js" defer></script>
-    <script src="search.js" defer></script>
-    <script src="index.js" defer></script>
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        "mainEntity": [
-          {
-            "@type": "Question",
-            "name": "What is Ultraviolet (Web Proxy)?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Highly sophisticated proxy used for evading internet censorship or accessing websites in a controlled sandbox using the power of service-workers and more!"
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "How do I unblock sites using Ultraviolet?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Simply head to an official site featuring Ultraviolet such as Holy Unblocker or Incognito! You can also self-host Ultraviolet on your own web server for maximum privacy."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "What if Ultraviolet is blocked or not working?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Join the Titanium Network Discord at discord.gg/unblock!"
-            }
-          }
-        ]
+<html>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
+<title>Ultraviolet | Sophisticated Web Proxy</title>
+<meta name="description" content="Ultraviolet is a highly sophisticated proxy used for evading internet censorship or accessing websites in a controlled sandbox using the power of service-workers. Unblock sites today!" />
+<meta name="keywords" content="proxy, web proxy, ultraviolet, service workers, unblock websites, unblock chromebook, free web proxy, proxy list, proxy sites, un block chromebook, online proxy, proxy server, proxysite, proxy youtube, bypass securly, bypass iboss, bypass lightspeed filter, holy unblocker, chromebooks, titanium network, unblock youtube, youtube proxy, unblocked youtube, youtube unblocked" />
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#434c5e" />
+<meta name="googlebot" content="index, follow, snippet" />
+<link rel="shortcut icon" href="favicon.ico" />
+<link rel="stylesheet" href="index.css" />
+<script src="baremux/bare.cjs" defer></script>
+<script src="epoxy/index.js" defer></script>
+<script src="uv/uv.bundle.js" defer></script>
+<script src="uv/uv.config.js" defer></script>
+<script src="register-sw.js" defer></script>
+<script src="search.js" defer></script>
+<script src="index.js" defer></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is Ultraviolet (Web Proxy)?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Highly sophisticated proxy used for evading internet censorship or accessing websites in a controlled sandbox using the power of service-workers and more!"
       }
-    </script>
-  <style>
-    @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap");
-
-#uv-frame {
-  position: fixed; /* 要素を固定位置に配置する */
-  top: 0; /* 上端に配置 */
-  left: 0; /* 左端に配置 */
-  width: 100%;
-  height: 100%;
-  border: none;
-}
-
-body {
-  font-family: 'Roboto', sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #f0f0f0;
-}
-
-h1 {
-  text-align: center;
-  margin-top: 20px;
-}
-
-.flex-center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.desc {
-  text-align: center;
-}
-
-.left-margin {
-  margin-left: 20px;
-}
-
-#uv-form {
-  margin-top: 20px;
-  text-align: center;
-}
-
-#uv-address {
-  width: 300px;
-  padding: 10px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-}
-
-footer {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  background-color: #434c5e;
-  color: #fff;
-  text-align: center;
-  padding: 10px 0;
-}
-
-iframe {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border: none;
-  display: none;
-}
-body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    margin: 20px;
-    background-color: #000;
-    color: #fff;
-}
-
-h1 {
-    color: #007bff;
-    font-size: 50px;
-    margin-bottom: 30px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
-}
-
-h2 {
-    color: red;
-    margin-top: 45px;
-    font-size: 3em;
-}
-
-p {
-    font-size: 18px;
-    margin-bottom: 10px;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
-}
-
-a {
-    color: #007bff;
-    text-decoration: none;
-}
-
-canvas {
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: -1;
-}
-
-ul {
-    list-style-type: none;
-    padding: 0;
-    font-size: 20px;
-    color: white;
-}
-
-li {
-    margin-bottom: 10px;
-    border-bottom: 1px solid #555;
-    padding-bottom: 5px;
-}
-
-li:last-child {
-    border-bottom: none;
-}
-
-li a {
-    color: #007bff;
-    text-decoration: none;
-}
-
-li a:hover {
-    text-decoration: underline;
-}
-
-.titles {
-    color: red;
-    font-family: sans-serif;
-    font-size: 5em;
-    font-weight: bold;
-}
-  </style>
-  </head>
-
-  <body>
-      <h1>Ultraviolet | TN × Psannetwork</h1>
-    </div>
-    <div class="flex-center desc left-margin">
-      <p>
-Ultraviolet はインターネットを回避するために使用される高度に洗練されたプロキシです。
-      </p>
-    </div>
-
-    <form id="uv-form" class="flex-center">
-      <input
-        id="uv-search-engine"
-        value="https://www.google.com/search?q=%s"
-        type="hidden"
-      />
-      <input id="uv-address" type="text" placeholder="Search the web freely" />
-    </form>
-    <div class="desc left-margin">
-      <p id="uv-error"></p>
-      <pre id="uv-error-code"></pre>
-    </div>
-    <footer>
-      <div>
-        <span>Ultraviolet &copy; TN 2023</span>
-      </div>
-    </footer>
-    <iframe style="display: none;" id="uv-frame" lang="jp"></iframe>
-    <canvas id="canvas"></canvas>
-
-<script>
-const canvas = document.getElementById("canvas");
-const ctx = canvas.getContext("2d");
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
-const lines = [];
-
-class Line {
-    constructor(x, y, color, speed) {
-        this.x = x;
-        this.y = y;
-        this.color = color;
-        this.speed = speed;
+    },
+    {
+      "@type": "Question",
+      "name": "How do I unblock sites using Ultraviolet?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Simply head to an official site featuring Ultraviolet such as Holy Unblocker or Incognito! You can also self-host Ultraviolet on your own web server for maximum privacy."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What if Ultraviolet is blocked or not working?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Join the Titanium Network Discord at discord.gg/unblock!"
+      }
     }
-
-    update() {
-        this.x += this.speed;
-        if (this.x > canvas.width) {
-            this.x = 0;
-        }
-    }
-
-    draw() {
-        ctx.beginPath();
-        ctx.moveTo(this.x, this.y);
-        ctx.lineTo(this.x + 50, this.y);
-        ctx.strokeStyle = this.color;
-        ctx.lineWidth = 2;
-        ctx.stroke();
-    }
+  ]
 }
-
-function createLines() {
-    for (let i = 0; i < 100; i++) {
-        const x = Math.random() * canvas.width;
-        const y = Math.random() * canvas.height;
-        const color = `rgba(${Math.random() * 255},${Math.random() * 255},${Math.random() * 255},0.8)`;
-        const speed = 1 + Math.random() * 3;
-        lines.push(new Line(x, y, color, speed));
-    }
-}
-
-function animate() {
-    requestAnimationFrame(animate);
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-    for (const line of lines) {
-        line.update();
-        line.draw();
-    }
-}
-
-createLines();
-animate();
 </script>
+</head>
+<body>
+<h1>Ultraviolet Proxy BBS</h1>
+<p>Ultravioletを使ったProxy</p>
+<p>検索エンジンを選択して検索ができます。</p>
+<form id="uv-form" class="flex-center" onsubmit="return handleSearch(event);">
+<input id="uv-search-engine" value="https://www.google.com/search?q=%s" type="hidden" />      
+<input id="uv-address" type="text" placeholder="Search the web freely" />
+</form>
+<ul>
+<li><button class="selecter" onclick="changesearchengine('https://www.google.com/search?q=%s');">Google</button></li>
+<li><button class="selecter" onclick="changesearchengine('https://www.bing.com/search?q=%s');">Bing</button></li>
+<li><button class="selecter" onclick="changesearchengine('https://search.yahoo.com/search?p=%s');">Yahoo</button></li>
+<li><button class="selecter" onclick="changesearchengine('https://www.startpage.com/sp/search?query=%s');">Startpage</button></li>
+<li><button class="selecter" onclick="changesearchengine('https://duckduckgo.com/?q=%s');">DuckDuckGo</button></li>
+</ul>
+<iframe style="display: none;" id="uv-frame"></iframe>
+<div id="loader" class="loader"></div>
+<script>
+function changesearchengine(engineUrl) {
+document.getElementById('uv-search-engine').value = engineUrl;
+const buttons = document.querySelectorAll('.selecter');
+buttons.forEach(button => {
+  button.classList.remove('selected');
+});
+event.currentTarget.classList.add('selected');
+}
 
-
-  </body>
+function handleSearch(event) {
+event.preventDefault();
+const searchEngine = document.getElementById('uv-search-engine').value;
+const query = document.getElementById('uv-address').value;
+const searchUrl = searchEngine.replace('%s', encodeURIComponent(query));
+document.getElementById('uv-frame').src = searchUrl;
+}
+</script>
+</body>
 </html>
