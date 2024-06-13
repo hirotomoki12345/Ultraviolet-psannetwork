@@ -1,88 +1,84 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
-<title>Ultraviolet | Sophisticated Web Proxy</title>
-<meta name="description" content="Ultraviolet is a highly sophisticated proxy used for evading internet censorship or accessing websites in a controlled sandbox using the power of service-workers. Unblock sites today!" />
-<meta name="keywords" content="proxy, web proxy, ultraviolet, service workers, unblock websites, unblock chromebook, free web proxy, proxy list, proxy sites, un block chromebook, online proxy, proxy server, proxysite, proxy youtube, bypass securly, bypass iboss, bypass lightspeed filter, holy unblocker, chromebooks, titanium network, unblock youtube, youtube proxy, unblocked youtube, youtube unblocked" />
-<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#434c5e" />
-<meta name="googlebot" content="index, follow, snippet" />
-<link rel="shortcut icon" href="favicon.ico" />
-<link rel="stylesheet" href="index.css" />
-<script src="baremux/bare.cjs" defer></script>
-<script src="epoxy/index.js" defer></script>
-<script src="uv/uv.bundle.js" defer></script>
-<script src="uv/uv.config.js" defer></script>
-<script src="register-sw.js" defer></script>
-<script src="search.js" defer></script>
-<script src="index.js" defer></script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "What is Ultraviolet (Web Proxy)?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Highly sophisticated proxy used for evading internet censorship or accessing websites in a controlled sandbox using the power of service-workers and more!"
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How do I unblock sites using Ultraviolet?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Simply head to an official site featuring Ultraviolet such as Holy Unblocker or Incognito! You can also self-host Ultraviolet on your own web server for maximum privacy."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What if Ultraviolet is blocked or not working?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Join the Titanium Network Discord at discord.gg/unblock!"
-      }
-    }
-  ]
-}
-</script>
+    <meta charset="utf-8" />
+    <title>Ultraviolet | Sophisticated Web Proxy</title>
+    <link rel="shortcut icon" href="favicon.ico" />
+    <link rel="stylesheet" href="index.css" />
+    <script src="baremux/bare.cjs" defer></script>
+    <script src="epoxy/index.js" defer></script>
+    <script src="uv/uv.bundle.js" defer></script>
+    <script src="uv/uv.config.js" defer></script>
+    <script src="register-sw.js" defer></script>
+    <script src="search.js" defer></script>
+    <script src="index.js" defer></script>
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+                {
+                    "@type": "Question",
+                    "name": "What is Ultraviolet (Web Proxy)?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Highly sophisticated proxy used for evading internet censorship or accessing websites in a controlled sandbox using the power of service-workers and more!"
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "How do I unblock sites using Ultraviolet?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Simply head to an official site featuring Ultraviolet such as Holy Unblocker or Incognito! You can also self-host Ultraviolet on your own web server for maximum privacy."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "What if Ultraviolet is blocked or not working?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Join the Titanium Network Discord at discord.gg/unblock!"
+                    }
+                }
+            ]
+        }
+    </script>
 </head>
 <body>
 <h1>Ultraviolet Proxy BBS</h1>
 <p>Ultravioletを使ったProxy</p>
 <p>検索エンジンを選択して検索ができます。</p>
 <form id="uv-form" class="flex-center" onsubmit="return handleSearch(event);">
-<input id="uv-search-engine" value="https://www.google.com/search?q=%s" type="hidden" />      
-<input id="uv-address" type="text" placeholder="Search the web freely" />
+    <input id="uv-search-engine" value="https://www.google.com/search?q=%s" type="hidden" />      
+    <input id="uv-address" type="text" placeholder="Search the web freely" />
 </form>
 <ul>
-<li><button class="selecter" onclick="changesearchengine('https://www.google.com/search?q=%s');">Google</button></li>
-<li><button class="selecter" onclick="changesearchengine('https://www.bing.com/search?q=%s');">Bing</button></li>
-<li><button class="selecter" onclick="changesearchengine('https://search.yahoo.com/search?p=%s');">Yahoo</button></li>
-<li><button class="selecter" onclick="changesearchengine('https://www.startpage.com/sp/search?query=%s');">Startpage</button></li>
-<li><button class="selecter" onclick="changesearchengine('https://duckduckgo.com/?q=%s');">DuckDuckGo</button></li>
+    <li><button class="selecter" onclick="changesearchengine('https://www.google.com/search?q=%s');">Google</button></li>
+    <li><button class="selecter" onclick="changesearchengine('https://www.bing.com/search?q=%s');">Bing</button></li>
+    <li><button class="selecter" onclick="changesearchengine('https://search.yahoo.com/search?p=%s');">Yahoo</button></li>
+    <li><button class="selecter" onclick="changesearchengine('https://www.startpage.com/sp/search?query=%s');">Startpage</button></li>
+    <li><button class="selecter" onclick="changesearchengine('https://duckduckgo.com/?q=%s');">DuckDuckGo</button></li>
+    <li><button class="selecter" onclick="changesearchengine('https://youtube.com/?q=%s');">Youtube</button></li>
 </ul>
 <iframe style="display: none;" id="uv-frame"></iframe>
 <div id="loader" class="loader"></div>
 <script>
 function changesearchengine(engineUrl) {
-document.getElementById('uv-search-engine').value = engineUrl;
-const buttons = document.querySelectorAll('.selecter');
-buttons.forEach(button => {
-  button.classList.remove('selected');
-});
-event.currentTarget.classList.add('selected');
+    document.getElementById('uv-search-engine').value = engineUrl;
+    const buttons = document.querySelectorAll('.selecter');
+    buttons.forEach(button => {
+        button.classList.remove('selected');
+    });
+    event.currentTarget.classList.add('selected');
 }
 
 function handleSearch(event) {
-event.preventDefault();
-const searchEngine = document.getElementById('uv-search-engine').value;
-const query = document.getElementById('uv-address').value;
-const searchUrl = searchEngine.replace('%s', encodeURIComponent(query));
-document.getElementById('uv-frame').src = searchUrl;
+    event.preventDefault();
+    const searchEngine = document.getElementById('uv-search-engine').value;
+    const query = document.getElementById('uv-address').value;
+    const searchUrl = searchEngine.replace('%s', encodeURIComponent(query));
+    document.getElementById('uv-frame').src = searchUrl;
 }
 </script>
 </body>
