@@ -47,8 +47,8 @@
 </head>
 <body>
 <h1>Ultraviolet Proxy BBS</h1>
-<p>Ultravioletを使ったProxy</p>
-<p>検索エンジンを選択して検索ができます。</p>
+<p>Ultravioletを使ったProxyサイト</p>
+<p>検索エンジンを選択してブロックを回避して検索ができます。</p>
 <form id="uv-form" class="flex-center" onsubmit="return handleSearch(event);">
     <input id="uv-search-engine" value="https://www.google.com/search?q=%s" type="hidden" />      
     <input id="uv-address" type="text" placeholder="Search the web freely" />
@@ -57,9 +57,9 @@
     <li><button class="selecter" onclick="changesearchengine('https://www.google.com/search?q=%s');">Google</button></li>
     <li><button class="selecter" onclick="changesearchengine('https://www.bing.com/search?q=%s');">Bing</button></li>
     <li><button class="selecter" onclick="changesearchengine('https://search.yahoo.com/search?p=%s');">Yahoo</button></li>
-    <li><button class="selecter" onclick="changesearchengine('https://www.startpage.com/sp/search?query=%s');">Startpage</button></li>
+    <li><button class="selecter" onclick="changesearchengine('https://www.startpage.com/search?query=%s');">Startpage</button></li>
     <li><button class="selecter" onclick="changesearchengine('https://duckduckgo.com/?q=%s');">DuckDuckGo</button></li>
-    <li><button class="selecter" onclick="changesearchengine('https://youtube.com/?q=%s');">Youtube</button></li>
+    <li><button class="selecter" onclick="changesearchengine('https://youtube.com/results?search_query=%s');">Youtube</button></li>
 </ul>
 <iframe style="display: none;" id="uv-frame"></iframe>
 <div id="loader" class="loader"></div>
