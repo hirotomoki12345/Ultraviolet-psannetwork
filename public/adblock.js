@@ -5,7 +5,62 @@
             
             const script = `
                 (function() {
-function _0x41b3(_0x144bf9,_0x1c4bb7){var _0x231191=_0x2311();return _0x41b3=function(_0x41b324,_0x98ede2){_0x41b324=_0x41b324-0xc9;var _0x2577d2=_0x231191[_0x41b324];return _0x2577d2;},_0x41b3(_0x144bf9,_0x1c4bb7);}(function(_0xb23d45,_0x24402d){var _0x6c84a5=_0x41b3,_0x525077=_0xb23d45();while(!![]){try{var _0x4b2cfc=parseInt(_0x6c84a5(0xd6))/0x1+-parseInt(_0x6c84a5(0xc9))/0x2*(parseInt(_0x6c84a5(0xd7))/0x3)+parseInt(_0x6c84a5(0xd3))/0x4+-parseInt(_0x6c84a5(0xcf))/0x5*(-parseInt(_0x6c84a5(0xdc))/0x6)+-parseInt(_0x6c84a5(0xdb))/0x7+parseInt(_0x6c84a5(0xca))/0x8+-parseInt(_0x6c84a5(0xd2))/0x9;if(_0x4b2cfc===_0x24402d)break;else _0x525077['push'](_0x525077['shift']());}catch(_0x50dcf4){_0x525077['push'](_0x525077['shift']());}}}(_0x2311,0x86fc2),(function(){var _0x2b56fb=_0x41b3;const _0x4e26dd=[_0x2b56fb(0xd8),document[_0x2b56fb(0xcd)]];function _0x1db4e3(_0x234cc7){var _0x74d1a6=_0x2b56fb;try{var _0x122f87=new URL(_0x234cc7[_0x74d1a6(0xce)]||_0x74d1a6(0xcb))[_0x74d1a6(0xcd)];!_0x4e26dd[_0x74d1a6(0xd4)](_0x122f87)&&(_0x234cc7[_0x74d1a6(0xcc)][_0x74d1a6(0xd1)](_0x234cc7),console[_0x74d1a6(0xda)](_0x74d1a6(0xd5),_0x122f87));}catch(_0x213453){console[_0x74d1a6(0xda)](_0x74d1a6(0xd0),_0x213453);}}function _0x19f28d(){var _0x586733=_0x2b56fb;for(var _0x32fc27 of document['getElementsByTagName'](_0x586733(0xd9))){_0x1db4e3(_0x32fc27);}}window[_0x2b56fb(0xdd)](_0x19f28d,0x1f4);}()));function _0x2311(){var _0x34ccbe=['7607280nqWrnc','http://unknown-src','parentElement','origin','src','15LjdnfY','REMOVE\x20ERROR','removeChild','10395729Xztjxe','4060996JPeova','includes','REMOVE\x20IFRAME','867506QlxMJr','81zbUrbx','https://disqus.com','iframe','log','6154274qRxMnj','711246DpXiEF','setInterval','44602uSjBGX'];_0x2311=function(){return _0x34ccbe;};return _0x2311();}
+//広告枠へのタグ追加を監視
+document.querySelector("div.video-ads").addEventListener('DOMNodeInserted', function(event) {
+        //バナー広告の閉じるボタン取得
+        let element = document.querySelector("div.ytp-ad-overlay-close-container > button");
+        if(element){
+                //閉じるボタンが取得できたのでクリック
+                element.click();
+                console.log('ad closed');
+                return;
+        }
+        //動画広告のスキップボタン取得
+        element = document.querySelector(".ytp-ad-skip-button");
+        if(element){
+                //スキップボタンが取得できたのでクリック
+                element.click();
+                console.log('ad skiped');
+                return;
+        }
+        //動画広告のスキップボタン取得
+        element = document.querySelector(".ytp-ad-skip-button-modern");
+        if(element){
+                //スキップボタンが取得できたのでクリック
+                element.click();
+                console.log('ad skiped');
+                return;
+        }
+
+        element = document.querySelector("span.ytp-ad-preview-container");
+        if(element){
+                console.log('動画はまもなく再生されます',element);
+                const videoElement= document.querySelector("video.video-stream");
+                if(videoElement) {
+                    console.log('videoElement.playbackRate',videoElement.playbackRate )
+videoElement.playbackRate=16
+console.log('videoElement.playbackRate',videoElement.playbackRate )
+                }
+                return;
+        }
+        
+
+}, false);
+
+//今⁠な⁠ら⁠、YouTube Premium⁠ ⁠が 3⁠ ⁠ヶ⁠月⁠無⁠料のダイアログ非表示
+document.querySelector("ytd-app").addEventListener('DOMNodeInserted', function(event) {
+
+//        console.log('ytd-app DOMNodeInserted');
+       let element = document.querySelector(".ytd-popup-container:not([hidden])")
+       if(element){
+        //スキップボタンが取得できたのでクリック
+        element.hidden=true
+        console.log('promo hidden');
+       }
+}, false);
+
+console.log('installed youtube ad blocker');
+                
                 })();
             `;
             
