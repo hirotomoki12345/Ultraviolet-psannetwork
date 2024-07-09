@@ -3,7 +3,8 @@ function runScriptInIframe() {
     const iframeWindow = iframe.contentWindow;
     const iframeDocument = iframe.contentDocument || iframeWindow.document;
 
-    const script = `
+    // Existing script
+    const existingScript = `
         (function(e){
             function t(e){
                 return ["DIV", "SPAN"].includes(e.tagName)
@@ -99,7 +100,39 @@ function runScriptInIframe() {
         });
     `;
 
-    iframeWindow.eval(script);
+    // New script for adding input and button
+    const newScript = `
+        (function() {
+            // Create the input element
+            const inputElement = iframeDocument.createElement('input');
+            inputElement.type = 'text';
+            inputElement.placeholder = 'Enter YouTube URL';
+
+            // Create the button element
+            const buttonElement = iframeDocument.createElement('button');
+            buttonElement.textContent = 'Download';
+
+            // Append the input and button elements to the desired div
+            const targetDiv = iframeDocument.querySelector('div.AI'); // Adjust the selector to match your target div
+            if (targetDiv) {
+                targetDiv.appendChild(inputElement);
+                targetDiv.appendChild(buttonElement);
+
+                // Add an event listener to the button
+                buttonElement.addEventListener('click', function() {
+                    const youtubeUrl = inputElement.value;
+                    if (youtubeUrl) {
+                        const downloadUrl = '/download?url=' + encodeURIComponent(youtubeUrl);
+                        window.location.href = downloadUrl;
+                    }
+                });
+            } else {
+                console.error('Target div not found.');
+            }
+        })();
+    `;
+
+    iframeWindow.eval(existingScript + newScript);
 }
 
 document.getElementById('uv-frame').onload = runScriptInIframe;
